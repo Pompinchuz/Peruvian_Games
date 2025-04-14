@@ -1,0 +1,127 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body, html {
+    height: 100%;
+    overflow: hidden;
+    background-color: #2b2b2b; /* Fondo oscuro */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Cinzel', serif;
+  }
+  
+  .door-wrapper {
+    position: relative;
+    width: 70%;
+    height: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 5;
+  }
+  
+  .door {
+    position: absolute;
+    width: 50%;
+    height: 100%;
+    background-color: #00ffcc; /* Azul eléctrico */
+    border: 6px solid #ff0033; /* Rojo neón */
+    box-shadow: 0 0 20px rgba(0, 255, 204, 0.7); /* Sombra brillante */
+    overflow: hidden;
+    z-index: 10;
+    animation: doorExplosion 2s ease forwards;
+  }
+  
+  .door-left {
+    left: 0;
+    transform-origin: top right;
+  }
+  
+  .door-right {
+    right: 0;
+    transform-origin: top left;
+  }
+  
+  .gears {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80px;
+    height: 80px;
+    background-color: #ff00ff; /* Morado neón */
+    border-radius: 50%;
+    border: 4px solid #ff0033; /* Borde en rojo neón */
+    animation: rotateGears 2s linear infinite;
+  }
+  
+  @keyframes rotateGears {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  
+  @keyframes doorExplosion {
+    0% {
+      transform: scale(1);
+      opacity: 1;
+    }
+    50% {
+      transform: scale(1.2) rotate(15deg);
+      opacity: 0.7;
+    }
+    100% {
+      transform: scale(0) rotate(180deg);
+      opacity: 0;
+      display: none;
+    }
+  }
+  
+  .steam-effect {
+    position: absolute;
+    width: 100%;
+    height: 50px;
+    background: rgba(0, 255, 204, 0.5); /* Vapor verde neón */
+    box-shadow: 0 0 25px rgba(0, 255, 204, 0.7); /* Efecto vapor brillante */
+    animation: steamEffect 2s ease-in-out infinite;
+    z-index: 2;
+  }
+  
+  @keyframes steamEffect {
+    0% {
+      opacity: 0;
+    }
+    50% {
+      opacity: 1;
+      transform: translateY(20px);
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+  
+  .content {
+    display: none;
+    color: #fff;
+    text-align: center;
+    font-size: 2rem;
+    z-index: 15;
+    animation: fadeIn 3s ease-in-out forwards;
+  }
+  
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  
